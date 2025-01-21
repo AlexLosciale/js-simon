@@ -16,11 +16,11 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 let numberList = document.getElementById("numbers-list");
 
-let storeNumeri = []
+let storeNumeri = [];
 
 for (let i = 0; i < 5; i++) {
     const numeroCasuale = Math.floor(Math.random() * 50) + 1;
-    storeNumeri.push(numeroCasuale)
+    storeNumeri.push(numeroCasuale);
 }
 console.log(storeNumeri);
 
@@ -30,9 +30,15 @@ if (numberList) {
     numberList.textContent = listaNumeriStringa;
 }
 
-setTimeout(sceltaGiocatore, 30000){
-    document.getElementById("number-list").style.visiblity=hidden;
-    document.getElementById("answers-form").style.visiblity=visible;
+setTimeout(sceltaGiocatore, 3000);
+function sceltaGiocatore() {
+    let numberListElement = document.getElementById("numbers-list");
+    let answersForm = document.getElementById("answers-form");
+
+    if (numberListElement) {
+        numberListElement.classList.add("d-none");
+    }
+    if (answersForm) {
+        answersForm.classList.remove("d-none");
+    }
 }
-
-
