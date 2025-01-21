@@ -13,8 +13,10 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 4- paragonare i 2 arrey e contare quanti numeri sono giusti di quelli iniseriti dal giocatore 
 5- scrivere il risultato sullo schermo
 */
-
 let numberList = document.getElementById("numbers-list");
+let formNumber = document.getElementById("input-group");
+const form = document.querySelector("form");
+let risultatoGioco = document.getElementById("message");
 
 let storeNumeri = [];
 
@@ -22,7 +24,7 @@ for (let i = 0; i < 5; i++) {
     const numeroCasuale = Math.floor(Math.random() * 50) + 1;
     storeNumeri.push(numeroCasuale);
 }
-console.log(storeNumeri);
+console.log("Numeri generati:", storeNumeri);
 
 let listaNumeriStringa = storeNumeri.join(", ");
 
@@ -42,3 +44,22 @@ function sceltaGiocatore() {
         answersForm.classList.remove("d-none");
     }
 }
+
+let numeriGiocatore = [];
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    let inputs = form.querySelectorAll("input");
+    numeriGiocatore = Array.from(inputs).map(function(input) {
+        return Number(input.value);
+    });
+
+    console.log("Numeri inseriti dall'utente:", numeriGiocatore);
+
+    const elementiComuni = storeNumeri.filter(num => numeriGiocatore.includes(num));
+    console.log("Gli elementi uguali sono:", elementiComuni);
+
+    risultatoGioco.innerHTML = message;
+});
+
