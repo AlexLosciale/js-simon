@@ -13,3 +13,26 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 4- paragonare i 2 arrey e contare quanti numeri sono giusti di quelli iniseriti dal giocatore 
 5- scrivere il risultato sullo schermo
 */
+
+let numberList = document.getElementById("numbers-list");
+
+let storeNumeri = []
+
+for (let i = 0; i < 5; i++) {
+    const numeroCasuale = Math.floor(Math.random() * 50) + 1;
+    storeNumeri.push(numeroCasuale)
+}
+console.log(storeNumeri);
+
+let listaNumeriStringa = storeNumeri.join(", ");
+
+if (numberList) {
+    numberList.textContent = listaNumeriStringa;
+}
+
+setTimeout(sceltaGiocatore, 30000){
+    document.getElementById("number-list").style.visiblity=hidden;
+    document.getElementById("answers-form").style.visiblity=visible;
+}
+
+
