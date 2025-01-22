@@ -60,6 +60,6 @@ form.addEventListener("submit", function (event) {
     const elementiComuni = storeNumeri.filter(num => numeriGiocatore.includes(num));
     console.log("Gli elementi uguali sono:", elementiComuni);
 
-    risultatoGioco.innerHTML = message;
+    risultatoGioco.innerHTML = elementiComuni;
 });
 
